@@ -1,0 +1,15 @@
+node_modules
+dist
+npm-debug.log*
+.env
+.env.*
+Dockerfile
+.dockerignore
+.git
+coverage
+src/**/*.test.js
+src/**/*.test.jsx
+src/testUtils
+jest.config.js
+jest.setup.js
+babel.config.js

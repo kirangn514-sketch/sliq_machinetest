@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log*
+keys
+.env
+.env.*
+Dockerfile
+.dockerignore
+.git
+src/**/*.test.js
+src/testUtils
+jest.setup.js
+coverage
