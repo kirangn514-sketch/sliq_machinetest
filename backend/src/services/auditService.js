@@ -21,6 +21,7 @@ const AUDIT = Object.freeze({
   COMMENT_CREATED: 'COMMENT_CREATED',
   SLA_SETTINGS_UPDATED: 'SLA_SETTINGS_UPDATED',
   SLA_BREACHED: 'SLA_BREACHED',
+  DEMO_DATA_SEEDED: 'DEMO_DATA_SEEDED',
 });
 
 /** ctx = { organizationId, userId, ip } (any may be null for system/unauthenticated events). */

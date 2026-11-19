@@ -28,6 +28,8 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 const env = {
   nodeEnv,
   isProduction: nodeEnv === 'production',
+  // `npm run seed:demo` is blocked in production unless this is explicitly 'true'.
+  allowDemoSeed: process.env.ALLOW_DEMO_SEED === 'true',
   port: int('BACKEND_PORT', 5000),
 
   db: {

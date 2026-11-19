@@ -141,8 +141,18 @@ async function deactivate(db, organizationId, userId) {
   return rows[0] || null;
 }
 
+/** True if any account (in any organization, active or removed) uses this email. */
+async function emailExistsInAnyOrganization(db, email) {
+  const { rows } = await db.query(
+    'SELECT EXISTS (SELECT 1 FROM users WHERE email = $1) AS found',
+    [email],
+  );
+  return rows[0].found;
+}
+
 module.exports = {
   create,
+  emailExistsInAnyOrganization,
   reactivate,
   findActiveCredentialsByEmail,
   findAuthContext,

@@ -111,6 +111,16 @@ describe('organization / user repositories', () => {
     expect(lastCall(db)[0]).toMatch(/token_version = u\.token_version \+ 1/);
   });
 
+  it('checks whether an email exists in any organization (bound parameter)', async () => {
+    // Arrange
+    const db = fakeDb(rows({ found: true }));
+    // Act
+    const found = await userRepository.emailExistsInAnyOrganization(db, 'a@b.io');
+    // Assert
+    expect(found).toBe(true);
+    expect(lastCall(db)[1]).toEqual(['a@b.io']);
+  });
+
   it('maps id lists', async () => {
     expect(await userRepository.listActiveIds(fakeDb(rows({ id: 1 }, { id: 2 })), ORG)).toEqual([1, 2]);
     expect(await userRepository.lockActiveAdmins(fakeDb(rows({ id: 3 })), ORG)).toEqual([3]);

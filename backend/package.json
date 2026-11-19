@@ -9,6 +9,7 @@
     "worker": "node src/workers/slaWorker.js",
     "dev": "node --watch src/server.js",
     "dev:worker": "node --watch src/workers/slaWorker.js",
+    "seed:demo": "node src/scripts/seedDemo.js",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -46,6 +47,7 @@
       "!src/**/*.test.js",
       "!src/server.js",
       "!src/workers/slaWorker.js",
+      "!src/scripts/**",
       "!src/testUtils/**"
     ],
     "coverageReporters": [
